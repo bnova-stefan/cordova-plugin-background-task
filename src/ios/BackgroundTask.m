@@ -23,10 +23,15 @@ static UIBackgroundTaskIdentifier backgroundTaskId;
         backgroundTaskId = UIBackgroundTaskInvalid;
     }];
 
-    [self.commandDelegate runInBackground:^{
+    // Start the long-running task and return immediately.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+ 
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    }];
+ 
+        [application endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    });
 }
 
 @end
