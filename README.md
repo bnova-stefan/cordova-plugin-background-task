@@ -14,8 +14,8 @@ You **do not** need to reference any JavaScript, the Cordova plugin architecture
 
 ### Start
 
-```js
-backgroundtask.start(functionToRun);
+```Typescript
+window['plugins'].BackgroundTask.start(functionToRun);
 ```
 
 ## Platform support
