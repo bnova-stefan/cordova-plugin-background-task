@@ -5,7 +5,7 @@ Allows you to run JavaScript when the app is active and for 3 minutes after the 
 ## Install
 
 ```
-cordova plugin add https://github.com/leecrossley/cordova-plugin-background-task.git
+cordova plugin add https://github.com/bnova-stefan/cordova-plugin-background-task.git
 ```
 
 You **do not** need to reference any JavaScript, the Cordova plugin architecture will add a backgroundtask object to your root automatically when you build.
