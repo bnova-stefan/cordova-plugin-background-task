@@ -1,12 +1,15 @@
-
-var exec = require("cordova/exec");
-
-var BackgroundTask = function () {
-    this.name = "BackgroundTask";
-};
+var BackgroundTask = function(){
+}
 
 BackgroundTask.prototype.start = function (task) {
-    exec(task, null, "BackgroundTask", "start", []);
+    cordova.exec(task, null, "BackgroundTask", "start", []);
 };
 
-module.exports = new BackgroundTask();
+if (!window.plugins)
+    window.plugins = {};
+
+if (!window.plugins.BackgroundTask)
+    window.plugins.BackgroundTask = new BackgroundTask();
+
+if (typeof module != 'undefined' && module.exports)
+    module.exports = BackgroundTask;
