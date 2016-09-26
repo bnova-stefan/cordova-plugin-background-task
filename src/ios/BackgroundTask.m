@@ -29,7 +29,7 @@ static UIBackgroundTaskIdentifier backgroundTaskId;
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
  
-        [application endBackgroundTask:backgroundTaskId];
+        [[UIApplication sharedApplication] endBackgroundTask:backgroundTaskId];
         backgroundTaskId = UIBackgroundTaskInvalid;
     });
 }
